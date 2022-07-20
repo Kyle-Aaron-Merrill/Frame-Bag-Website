@@ -9,14 +9,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1c3ebc7a41.js" crossorigin="anonymous"></script>
+      
     </head>
     <body class="home">
-        <header class="site-banner">
+        <header class="site-banner" id="site-banner">
             <div class="site-nav">
-                <button>
-                    <span class="burger burger-top"></span>
-                    <span class="burger burger-mid"></span>
-                    <span class="burger burger-bottom"></span>
+                <button class="burger-button" id="burger-button">
+                    <span class="burger-line burger-top"></span>
+                    <span class="burger-line burger-mid"></span>
+                    <span class="burger-line burger-bottom"></span>
                 </button>
             </div>
             <div class="site-banner-logo">
@@ -24,9 +25,18 @@
                     Kyle's Frame Bags
                 </a>
             </div>
-            <div href="/cart" class="cart">
-                <i class="fas fa-shopping-cart"></i>
+            <div class="cart">
+                <button href="/cart" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+            <div id="dropdown" class="dropdown">
+
             </div>
         </header>
+        <main class="site-container">
+            
+        </main>
     </body>
+    <script src="TomScript.js"></script>
 </html>
