@@ -9,34 +9,75 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1c3ebc7a41.js" crossorigin="anonymous"></script>
-      
     </head>
     <body class="home">
-        <header class="site-banner" id="site-banner">
-            <div class="site-nav">
-                <button class="burger-button" id="burger-button">
-                    <span class="burger-line burger-top"></span>
-                    <span class="burger-line burger-mid"></span>
-                    <span class="burger-line burger-bottom"></span>
-                </button>
-            </div>
-            <div class="site-banner-logo">
-                <a href="/">
-                    Kyle's Frame Bags
-                </a>
-            </div>
-            <div class="cart">
-                <button href="/cart" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
-            </div>
+        <div class="wrapper">
+            <header class="site-banner" id="site-banner">
+                <div class="site-nav">
+                    <button class="burger-button" id="burger-button">
+                            <span class="burger-line burger-top"></span>
+                            <span class="burger-line burger-mid"></span>
+                            <span class="burger-line burger-bottom"></span>
+                    </button>
+                </div>
+                <div class="site-banner-logo">
+                    <a href="/">
+                        Kyle's Frame Bags
+                    </a>
+                </div>
+                <div class="cart">
+                    <button href="/cart" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </header>
             <div id="dropdown" class="dropdown">
-
+                <ul class="dropdown-ul">
+                    <li class="dropdown-li"><a href="/frame_bags" class="frame-bag">Frame Bag Gallery</a></li>
+                    <li class="dropdown-li"><a href="/contact" class="contact">Contact Us</a></li>
+                </ul>
             </div>
-        </header>
-        <main class="site-container">
-            
-        </main>
+            <main id="site-container">
+                <div class="Swipper-container">
+                    <h3 class="main-h3">Hand Made Frame Bags</h3>
+                    <div class="how to order button">
+                        <button class="order-button">Add to cart &#9866; $100</button>
+                    </div>
+                </div>
+                <div class="bag-info">
+                    <div class="bag-pic-1">
+                        <img src="https://ilovebicycling.com/wp-content/uploads/2018/05/bikepacking.jpg" alt="bike image">
+                    </div>
+                    <div class="about-bag-info">
+                        <div class="about-text-box">
+                            <h1>Personalize Your Bag</h1>
+                            <p>Choose the platform of your bag. Choose the amount of zippers you want on your bag, add internal pockets, add an internal divider, or determine your mounting design. Your bag is designed the way you want.</p>
+                        </div>
+                        <div class="about-text-box">
+                            <h1>Choose your fabric</h1>
+                            <p>
+                                We offer multiple colors to choose from so whether you are looking for an eye-catching design or something more under the radar, we select the fabric to match your needs. </p>
+                        </div>
+                        <div class="about-text-box">
+                            <h1>Built in features</h1>
+                            <p>We include essential features such as a shock mount, waterproof zippers, padded inserts for structural integrity, and a hydration hose exit port.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-slider">
+                    <div class="gallery-container">
+                        <div class="img-1"></div>
+                        <div class="img-2"></div>
+                        <div class="img-2"></div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="contact"></div>
+                <div class="about"></div>
+                <div class="warranty"></div>
+            </footer>
+        </div>
     </body>
     <script src="TomScript.js"></script>
 </html>
