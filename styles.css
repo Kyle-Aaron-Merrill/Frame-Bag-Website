@@ -1,242 +1,842 @@
 *,*::before,*::after{
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Merriweather Sans', sans-serif;
 }
 .wrapper{
+    margin: 0;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    min-height: 100vh;
-    min-width: 90vh;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 body{
     background: #f6f7f2;
+    
 }
-/*----------------------------------------------------Header Styles------------------------------------------*/
-header{
-    background-color: black;
+body.preload *{
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+    transition:background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;}
+img{
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    height: 4em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    height: auto;
 }
-header a{
-    color: whitesmoke;
-    font-family: 'Merriweather Sans', sans-serif;
-    text-decoration: none;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+/*--------------------------------------------------------Animations---------------------------------------------*/
+@keyframes drop-down{
+    from {
+        height: 0%;
+      }
+    
+      to {
+        height: 100%;
+      }
 }
-button{
-    height: inherit;
-    width: inherit;
-    background: inherit;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-evenly;
-    align-items: center;
+@keyframes drop-down-ul{
+    from {
+        top: -10em;
+        opacity: 0;
+    }
+    to {
+        top: 0em;
+        opacity: 1;
+    }
 }
-.site-banner-logo{
+@keyframes drop-down-main{
+    from{
+        height: 100%;
+    }
+    to{
+        height: 0%;
+    }
+}
+@keyframes pop-up{
+    from {
+        height: 100%;
+      }
+    
+      to {
+        height: 0%;
+      }
+}
+@keyframes pop-up-ul{
+    from {
+        top: 0em;
+        opacity: 1;
+    }
+    to {
+        top: -10em;
+        opacity: 0;
+    }
+}
+@keyframes pop-up-main{
+    from{
+        display: none;
+        height: 0%;
+    }
+    to{
+        height: 100%;
+        display: contents;
+    }
+}
+/*--------------------------------------------------------Desktop Styles-----------------------------------------*/
+@media screen and (min-width:1201px){
+    /*----------------------------------------------------Header Styles------------------------------------------*/
+    header{
+        display: flex;
+        width: 100%;
+        background: black;
+        justify-content: center;
+    }
+    header a{
+        color: whitesmoke;
+        font-family: 'Merriweather Sans', sans-serif;
+        text-decoration: none;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    button{
+        height: inherit;
+        width: inherit;
+        background: inherit;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+    }
+    .site-banner-logo{
         width: 15%;
         text-align: center;
+    }
+    .site-banner{
+        position: fixed;
+        background-color: black;
+        width: 100%;
+        max-width: 150em;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        height: 4em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    .burger-top{
+        top: 17px;
+    }
+    .burger-mid{
+        top: 30px;
+    }
+    .burger-bottom{
+        top: 43px;
+    }
+    .cart{
+        height: 100%;
+        width: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fa-shopping-cart{
+        color: whitesmoke;
+        font-size: 3em;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button{
+        height: 100%;
+        width: 5em;
+        opacity: 1;
+        transition: all 0.15s ease-out;
+    }
+    .burger-line{
+        display: block;
+        position: absolute;
+        opacity: 1;
+        height: 0.3em;
+        width: 2.5em;
+        background: whitesmoke;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button.active .burger-top{
+        transform: rotate(45deg) translate(9px, 10px);
+    }
+    .burger-button.active .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px);
+    }
+    .burger-button.active:hover .burger-top{
+        transform: rotate(45deg) translate(9px, 10px) scale(1.25);
+    }
+    .burger-button.active:hover .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active:hover .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px) scale(1.25);
+    }
+    .burger-button:hover .burger-line{
+        transform: scale(1.2);
+    } 
+    .site-banner-logo:hover a{
+        transform: scaleY(1.5);
+        font-weight: bolder;
+        font-size: 1.15em;
+    }
+    .cart-button{
+        color: whitesmoke;
+        font-size: 3.5em;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .cart-button:hover{
+        transform: scale(1.1);
+        font-weight: bolder;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown{
+        display: block;
+        background-color: darkslategray;
+        width: 100%;
+        animation-duration: 0.5s;
+        animation-name: pop-up;
+        height: 0%;
+    }
+    .dropdown.active {
+        display: block;
+        position: fixed;
+        background-color: darkslategray;
+        width: 100%;
+        animation-duration: 0.5s;
+        animation-name: drop-down;
+        height: 100%;
+        top: 0em;
+        z-index: 1;
+    }
+    .site-banner.active{
+        background-color: darkslategray;
+        
+    }
+    .site-nav.active{
+        background-color: darkslategray;
+        z-index: 2;
+        position: fixed;
+    }
+    /*------------------------------------------------------------------------------------Dropdown styles----------------------------------------------------------------------*/
+    .dropdown-ul{
+        list-style: none;
+        margin: 0;
+        padding: 4%;
+        animation-duration: 0.5s;
+        animation-name: pop-up-ul;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .dropdown-ul.active{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation-duration: 0.5s;
+        animation-name: drop-down-ul;
+        opacity: 1;
+        top: 0em;
+    }
+    .dropdown-li{
+        padding: 1%;
+    }
+    .dropdown-li a{
+        font-size: 25px;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    /*------------------------------------------------------------------------------------Main Styles------------------------------------------------------------------------*/
+    main{
+        /*min-width: 90vh;*/
+        animation-duration: 0.5s;
+        animation-name: pop-up-main;
+        height: 100px;
+    }
+    main.active{
+        animation-duration: 0.5s;
+        animation-name: drop-down-main;
+        height: 0px;
+    }
+    .Swipper-container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: center;
+        background-image: url(https://live.staticflickr.com/65535/52241875663_6757a3ff68_b.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .main-h3{
+        color: #fff;
+        text-shadow: 2px 2px #0000001a;
+        margin-bottom: 1em;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    .order-button{
+        font-family: 'Merriweather Sans', sans-serif;
+        margin-bottom: 3em;
+        background: white;
+        width: 195px;
+        height: 45px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+    .order-button:hover{
+        opacity: 0.8;
+        box-shadow: 0px 15px 20px rgba(59, 56, 49, 0.4);
+        transform: translateY(-7px);
+    }
+    .bag-info{
+        margin-top: 6.5em;
+        display: grid;
+        grid-column: 2;
+        grid-auto-flow: column;
+        grid-column-gap: 2em;
+        grid-row-gap: 3em;
+        justify-content: space-around;
+        align-content: center;
+        align-items: start;
+        justify-items: end;
+    }
+    .about-text-box{
+        font-family: 'Merriweather Sans', sans-serif;
+        width: 30em;
+        font-size: 14px;
+        margin-bottom: 1.5em;
+    }
+    .about-text-box h1{
+        text-align: center;
+    }
+    .about-text-box p{
+        text-align: left;
+    }
+    .gallery-slider{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 100vh;
+        min-width: 90vh;
+        margin-top: 2em;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+        flex-wrap: nowrap;
+    }
+    .gallery-container{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 75vh;
+        width: 75em;
+    }
 }
-.site-nav{
-    height: 100%;
-    width: 4em;
+/*--------------------------------------------------------Mobile Styles------------------------------------------*/
+@media screen and (max-width: 1200px) {
+    /*----------------------------------------------------Header Styles------------------------------------------*/
+    header{
+        background-color: black;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        height: 4em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    header a{
+        color: whitesmoke;
+        font-family: 'Merriweather Sans', sans-serif;
+        text-decoration: none;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    button{
+        background: inherit;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .site-banner-logo{
+            width: 15%;
+            text-align: center;
+    }
+    .site-nav{
+        height: 100%;
+        width: 4em;
+    }
+    .burger-top{
+        top: 17px;
+    }
+    .burger-mid{
+        top: 30px;
+    }
+    .burger-bottom{
+        top: 43px;
+    }
+    .cart{
+        height: 100%;
+        width: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fa-shopping-cart{
+        color: whitesmoke;
+        font-size: 3em;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button{
+        opacity: 1;
+        transition: all 0.15s ease-out;
+    }
+    .burger-line{
+        display: block;
+        position: absolute;
+        opacity: 1;
+        height: 0.3em;
+        width: 2.5em;
+        background: whitesmoke;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button.active .burger-top{
+        transform: rotate(45deg) translate(9px, 10px);
+    }
+    .burger-button.active .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px);
+    }
+    .burger-button.active:hover .burger-top{
+        transform: rotate(45deg) translate(9px, 10px) scale(1.25);
+    }
+    .burger-button.active:hover .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active:hover .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px) scale(1.25);
+    }
+    .burger-button:hover .burger-line{
+        transform: scale(1.2);
+    } 
+    .site-banner-logo:hover a{
+        transform: scaleY(1.5);
+        font-weight: bolder;
+        font-size: 1.15em;
+    }
+    .cart-button{
+        color: whitesmoke;
+        font-size: 3.5em;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .cart-button:hover{
+        transform: scale(1.1);
+        font-weight: bolder;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown{
+        display: none;
+        
+    }
+    .dropdown.active {
+        display: block;
+        background-color: darkslategray;
+        width: 100%;
+        height: 100vh;
+        top: 64px;
+        
+    }
+    .site-banner.active{
+        background-color: darkslategray;
+        
+    }
+    /*------------------------------------------------------------------------------------Dropdown styles----------------------------------------------------------------------*/
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 4%;
+    }
+    .dropdown-ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .dropdown-li{
+        padding: 1%;
+    }
+    .dropdown-li a{
+        font-size: 25px;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    /*------------------------------------------------------------------------------------Main Styles------------------------------------------------------------------------*/
+    main{
+        /*min-width: 90vh;*/
+        
+    }
+    .Swipper-container{
+        width: 100%;
+        height: 60vh;
+        background: brown;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .main-h3{
+        color: #fff;
+        text-shadow: 2px 2px #0000001a;
+        margin-bottom: 1em;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    .order-button{
+        font-family: 'Merriweather Sans', sans-serif;
+        margin-bottom: 3em;
+        background: white;
+        width: 195px;
+        height: 45px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+    .order-button:hover{
+        opacity: 0.8;
+        box-shadow: 0px 15px 20px rgba(59, 56, 49, 0.4);
+        transform: translateY(-7px);
+    }
+    .about-text-box{
+        font-family: 'Merriweather Sans', sans-serif;
+        width: 30em;
+        font-size: 14px;
+        margin-bottom: 1.5em;
+    }
+    .about-text-box h1{
+        text-align: center;
+    }
+    .about-text-box p{
+        text-align: left;
+    }
+    .bag-info{
+        margin-top: 1.5em;
+        display: grid;
+        grid-column: 2;
+        grid-auto-flow: row;
+        grid-column-gap: 2em;
+        grid-row-gap: 3em;
+        justify-content: space-around;
+        align-content: center;
+        align-items: start;
+        justify-items: center;
+        width: 100%;
+    }
+    .gallery-slider {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 100vh;
+        margin-top: 2em;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 75vh;
+        width: 90%;
+    }
 }
-.burger-top{
-    top: 2%;
-}
-.burger-mid{
-    top: 3.5%;
-}
-.burger-bottom{
-    top: 5%;
-}
-.cart{
-    height: 100%;
-    width: 4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.fa-shopping-cart{
-    color: whitesmoke;
-    font-size: 3em;
-    border-radius: 1.5px;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-.burger-button{
-    opacity: 1;
-    transition: all 0.15s ease-out;
-}
-.burger-line{
-    display: block;
-    position: absolute;
-    opacity: 1;
-    height: 0.3em;
-    width: 2.5em;
-    background: whitesmoke;
-    border-radius: 1.5px;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-.burger-button.active .burger-top{
-    transform: rotate(45deg) translate(9px, 10px);
-}
-.burger-button.active .burger-mid{
-    opacity: 0;
-}
-.burger-button.active .burger-bottom{
-    transform: rotate(-45deg) translate(9px, -10px);
-}
-.burger-button.active:hover .burger-top{
-    transform: rotate(45deg) translate(9px, 10px) scale(1.25);
-}
-.burger-button.active:hover .burger-mid{
-    opacity: 0;
-}
-.burger-button.active:hover .burger-bottom{
-    transform: rotate(-45deg) translate(9px, -10px) scale(1.25);
-}
-.burger-button:hover .burger-line{
-    transform: scale(1.2);
-} 
-.cart-button:hover .fa-shopping-cart{
-    transform: scale(1.2);
-}
-.site-banner-logo:hover a{
-    transform: scaleY(1.5);
-    font-weight: bolder;
-    font-size: 1.15em;
-}
-.dropdown{
-    display: none;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-.dropdown.active {
-    display: block;
-    background-color: darkslategray;
-    width: 100%;
-    height: 100vh;
-    top: 64px;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-.site-banner.active{
-    background-color: darkslategray;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-/*------------------------------------------------------------------------------------Dropdown styles----------------------------------------------------------------------*/
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 4%;
-}
-.dropdown-ul{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.dropdown-li{
-    padding: 1%;
-}
-.dropdown-li a{
-    font-size: 25px;
-}
-/*------------------------------------------------------------------------------------Main Styles------------------------------------------------------------------------*/
-main{
-    min-width: 90vh;
-    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
-}
-.Swipper-container{
-    width: 100%;
-    height: 60vh;
-    background: brown;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-end;
-    align-items: center;
-}
-.main-h3{
-    color: #fff;
-    text-shadow: 2px 2px #0000001a;
-    margin-bottom: 1em;
-}
-.order-button{
-    margin-bottom: 3em;
-    background: white;
-    width: 195px;
-    height: 45px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-}
-.order-button:hover{
-    opacity: 0.8;
-    box-shadow: 0px 15px 20px rgba(59, 56, 49, 0.4);
-    transform: translateY(-7px);
-}
-.bag-info{
-    margin-top: 1.5em;
-    display: grid;
-    grid-column: 2;
-    grid-auto-flow: column;
-    grid-column-gap: 2em;
-    grid-row-gap: 3em;
-    justify-content: space-around;
-    align-content: center;
-    align-items: start;
-    justify-items: end;
-}
-.about-text-box{
-    width: 30em;
-    font-size: 14px;
-    margin-bottom: 1.5em;
-}
-.about-text-box h1{
-    text-align: center;
-}
-.about-text-box p{
-    text-align: left;
-}
-.gallery-slider{
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    min-height: 100vh;
-    min-width: 90vh;
-    margin-top: 2em;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
-    flex-wrap: nowrap;
-}
-.gallery-container{
-    background: blue;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    min-height: 75vh;
-    width: 75em;
+/*-------------------------------------------------------Mobile Small Styles------------------------------------*/
+@media screen and (max-width: 420px){
+   /*----------------------------------------------------Header Styles------------------------------------------*/
+    header{
+        background-color: black;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        height: 4em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    header a{
+        color: whitesmoke;
+        font-family: 'Merriweather Sans', sans-serif;
+        text-decoration: none;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    button{
+        background: inherit;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .site-banner-logo{
+            width: 15%;
+            text-align: center;
+    }
+    .site-nav{
+        height: 100%;
+        width: 4em;
+    }
+    .burger-top{
+        top: 17px;
+    }
+    .burger-mid{
+        top: 30px;
+    }
+    .burger-bottom{
+        top: 43px;
+    }
+    .cart{
+        height: 100%;
+        width: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fa-shopping-cart{
+        color: whitesmoke;
+        font-size: 3em;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button{
+        opacity: 1;
+        transition: all 0.15s ease-out;
+    }
+    .burger-line{
+        display: block;
+        position: absolute;
+        opacity: 1;
+        height: 0.3em;
+        width: 2.5em;
+        background: whitesmoke;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button.active .burger-top{
+        transform: rotate(45deg) translate(9px, 10px);
+    }
+    .burger-button.active .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px);
+    }
+    .burger-button.active:hover .burger-top{
+        transform: rotate(45deg) translate(9px, 10px) scale(1.25);
+    }
+    .burger-button.active:hover .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active:hover .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px) scale(1.25);
+    }
+    .burger-button:hover .burger-line{
+        transform: scale(1.2);
+    } 
+    .site-banner-logo:hover a{
+        transform: scaleY(1.5);
+        font-weight: bolder;
+        font-size: 1.15em;
+    }
+    .cart-button{
+        color: whitesmoke;
+        font-size: 3.5em;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .cart-button:hover{
+        transform: scale(1.1);
+        font-weight: bolder;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown{
+        display: none;
+        
+    }
+    .dropdown.active {
+        display: block;
+        background-color: darkslategray;
+        width: 100%;
+        animation-duration: 3s;
+        animation-name: drop-down;
+    }
+    .site-banner.active{
+        background-color: darkslategray;
+        
+    }
+    /*------------------------------------------------------------------------------------Dropdown styles----------------------------------------------------------------------*/
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 4%;
+    }
+    .dropdown-ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .dropdown-li{
+        padding: 1%;
+    }
+    .dropdown-li a{
+        font-size: 25px;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    /*------------------------------------------------------------------------------------Main Styles------------------------------------------------------------------------*/
+    main{
+        /*min-width: 90vh;*/
+        
+    }
+    .Swipper-container{
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .main-h3{
+        color: #fff;
+        text-shadow: 2px 2px #0000001a;
+        margin-bottom: 1em;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    .order-button{
+        font-family: 'Merriweather Sans', sans-serif;
+        margin-bottom: 3em;
+        background: white;
+        width: 195px;
+        height: 45px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+    .order-button:hover{
+        opacity: 0.8;
+        box-shadow: 0px 15px 20px rgba(59, 56, 49, 0.4);
+        transform: translateY(-7px);
+    }
+    .about-text-box{
+        font-family: 'Merriweather Sans', sans-serif;
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 1.5em;
+    }
+    .about-text-box h1{
+        text-align: center;
+    }
+    .about-text-box p{
+        text-align: left;
+    }
+    .bag-info{
+        margin-top: 1.5em;
+        display: grid;
+        grid-column: 2;
+        grid-auto-flow: row;
+        grid-column-gap: 2em;
+        grid-row-gap: 3em;
+        justify-content: space-around;
+        align-content: center;
+        align-items: start;
+        justify-items: center;
+        width: 100%;
+    }
+    .gallery-slider {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 100vh;
+        margin-top: 2em;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 75vh;
+        width: 90%;
+    } 
 }
