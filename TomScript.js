@@ -2,8 +2,8 @@
 setTimeout(function(){
     document.body.className="";
 },500);
-
 /*-------------------------------Dropdown Function------------------*/
+
 let buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', function(){

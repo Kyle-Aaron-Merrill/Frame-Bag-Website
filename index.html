@@ -21,7 +21,7 @@
                             <span class="burger-line burger-bottom"></span>
                     </button>
                     <div class="site-banner-logo">
-                        <a href="/">
+                        <a href="index.html">
                             Kyle's Frame Bags
                         </a>
                     </div>
@@ -34,6 +34,7 @@
             </header>
             <div id="dropdown" class="dropdown">
                 <ul class="dropdown-ul">
+                    <li class="dropdown-li"><a href="index.html" class="home">Home</a></li>
                     <li class="dropdown-li"><a href="/frame_bags" class="frame-bag">Frame Bag Gallery</a></li>
                     <li class="dropdown-li"><a href="/contact" class="contact">Contact Us</a></li>
                 </ul>
@@ -42,7 +43,7 @@
                 <div class="Swipper-container">
                     <h3 class="main-h3">Hand Made Frame Bags</h3>
                     <div class="how to order button">
-                        <button class="order-button">Add to cart &#9866; $100</button>
+                        <button class="order-button" id="cart-add" onclick="window.location.href = 'cart.html';">Add to cart &#9866; $100</button>
                     </div>
                 </div>
                 <div class="bag-info">
@@ -118,4 +119,5 @@
             </main>
     </body>
     <script src="TomScript.js"></script>
+    <script src="cart.js"></script>
 </html>
