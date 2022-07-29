@@ -109,6 +109,7 @@ img{
         font-family: 'Merriweather Sans', sans-serif;
         text-decoration: none;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        font-size: 30px;
     }
     button{
         height: inherit;
@@ -356,9 +357,11 @@ img{
     }
     .about-text-box h1{
         text-align: center;
+        margin-bottom: 1em;
     }
     .about-text-box p{
         text-align: left;
+        line-height: 1.5em;
     }
     .scroll.show{
         filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
@@ -407,7 +410,9 @@ img{
     }
     .dot.active{
         transform: scale(1.25);
+        position: relative;
         background-color: #717171;
+        z-index: -1;
         transition: background-color 0.6s ease;
     }
     .number-display{
@@ -477,7 +482,7 @@ img{
         margin-top: 5em;
         margin-bottom: 5em;
     }
-    footer{
+    .footer-nav{
         display: flex;
         flex-direction: row;
         align-content: flex-start;
@@ -485,16 +490,28 @@ img{
         align-items: flex-start;
         height: 10vh;
     }
-    footer div{
-        font-size: 30px;
+    .footer-div{
+        font-size: 40px;
         cursor: pointer;
         font-family: 'Merriweather Sans', sans-serif;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        margin-bottom: 2em;
     }
-    footer div:hover{
+    .footer-div:hover{
         filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
         transform: translateY(-7px);
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .footer-social{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 1em;
+        justify-content: space-evenly;
+    }
+    footer div a{
+        color: #000;
     }
 }
 /*--------------------------------------------------------Mobile Styles------------------------------------------*/
@@ -511,6 +528,7 @@ img{
         font-family: 'Merriweather Sans', sans-serif;
         text-decoration: none;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        font-size: 20px;
     }
     button{
         height: inherit;
@@ -744,9 +762,11 @@ img{
     }
     .about-text-box h1{
         text-align: center;
+        margin-bottom: 1em;
     }
     .about-text-box p{
         text-align: left;
+        line-height: 1.5em;
     }
     .bag-info{
         margin-top: 1.5em;
@@ -801,7 +821,9 @@ img{
     }
     .dot.active{
         transform: scale(1.25);
+        position: relative;
         background-color: #717171;
+        z-index: -1;
         transition: background-color 0.6s ease;
     }
     .number-display{
@@ -872,24 +894,36 @@ img{
         margin-top: 5em;
         margin-bottom: 5em;
     }
-    footer{
+    .footer-nav{
         display: flex;
         flex-direction: row;
         align-content: flex-start;
         justify-content: space-around;
         align-items: flex-start;
-        height: 10vh;
+        height: 8vh;
     }
-    footer div{
-        font-size: 20px;
+    .footer-div{
+        font-size: 30px;
         cursor: pointer;
         font-family: 'Merriweather Sans', sans-serif;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        margin-bottom: 2em;
     }
-    footer div:hover{
+    .footer-div:hover{
         filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
         transform: translateY(-7px);
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .footer-social{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 1em;
+        justify-content: space-evenly;
+    }
+    footer div a{
+        color: #000;
     }
 }
 /*-------------------------------------------------------Mobile Small Styles------------------------------------*/
@@ -906,6 +940,7 @@ img{
         font-family: 'Merriweather Sans', sans-serif;
         text-decoration: none;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        font-size: 10px;
     }
     button{
         height: inherit;
@@ -1139,9 +1174,11 @@ img{
     }
     .about-text-box h1{
         text-align: center;
+        margin-bottom: 1em;
     }
     .about-text-box p{
         text-align: center;
+        line-height: 1.5em;
     }
     .bag-info{
         margin-top: 1.5em;
@@ -1196,7 +1233,9 @@ img{
     }
     .dot.active{
         transform: scale(1.25);
+        position: relative;
         background-color: #717171;
+        z-index: -1;
         transition: background-color 0.6s ease;
     }
     .number-display{
@@ -1266,23 +1305,240 @@ img{
         margin-top: 1em;
         margin-bottom: 1.75em;
     }
-    footer{
+    .footer-nav{
         display: flex;
         flex-direction: row;
         align-content: flex-start;
         justify-content: space-around;
         align-items: flex-start;
-        height: 10vh;
+        height: 6vh;
     }
-    footer div{
+    .footer-div{
         font-size: 20px;
         cursor: pointer;
         font-family: 'Merriweather Sans', sans-serif;
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        margin-bottom: 0em;
     }
-    footer div:hover{
+    .footer-div:hover{
         filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
         transform: translateY(-7px);
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
     }
+    .footer-social{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    footer div a{
+        color: #000;
+    }
+}
+/*-----------------------------------------------Cart Page Styles---------------------------*/
+.cart-body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f6f7f2, #FAFCFF);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart-container{
+    width: 80%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+    margin-top: 4em;
+}
+.cart-h1{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 100;
+    color: #4a4a4a;
+    line-height: 1.625;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1.75em;
+}
+.cart-form{
+    margin: 0;
+}
+.cart-table{
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+}
+.cart-table td{
+    padding: 30px 0 20px;
+    vertical-align: top;
+}
+tr{
+    border-bottom: 1px solid rgb(94 95 104 / 15%);
+}
+.cart-table th {
+    font-weight: 400;
+    padding: 10px 20px;
+}
+.cart-header th{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 1.625;
+    border: 0;
+}
+.cart-product{
+    padding-left: 0;
+    text-align: left;
+}
+.cart-price{
+    text-align: right;
+}
+.cart-qty{
+    text-align: center;
+}
+.cart-total{
+    text-align: left;
+}
+.cart-row{
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+}
+.cart-item{
+    height: 10vh;
+}
+.cart-image{
+    width: 10%;
+    height: auto;
+    float: none;
+}
+.cart-item a{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4a4a4a;
+    font-size: 1.8rem;
+    line-height: 1;
+    text-decoration: none;
+}
+.cart-remove{
+    padding: 0;
+    font-size: 1.2rem !important;
+    color: #4a4a4a !important;
+    border-bottom-color: currentColor;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+.cart-item-name{
+    width: 50%;
+    text-indent: 4em;
+}
+.cart-item p{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4a4a4a;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+.cart-item input{
+    background-color: #fff;
+    border: 1px solid rgb(94 95 104 / 15%);
+    border-radius: 5px;
+    font-size: 1.4rem;
+    line-height: 1.71429;
+    text-align: center;
+    width: 60px;
+    padding: 10px 5px;
+    margin-bottom: 0;
+    height: 50px;
+    margin-top: -15px;
+}
+.cart-foot{
+    margin-top: 5vh !important;
+    width: 90%;
+    margin: 0 auto;
+}
+.cart-foot label{
+    cursor: default;
+    margin-bottom: 5px;
+}
+.cart-notes-container{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4a4a4a;
+    font-size: 1.2rem;
+    line-height: 1;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+.cart-notes-container textarea{
+    font-family: 'Merriweather Sans', sans-serif;
+    border: 1px solid rgb(94 95 104 / 15%);
+    border-radius: 5px;
+    text-indent: 5px;
+}
+.cart-checkout{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin: 0 auto;
+}
+.cart-checkout span{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4a4a4a;
+    font-size: 1.8rem;
+    line-height: 1;
+    width: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.cart-subtotal-title{
+    margin-right: 5%;
+}
+.cart-conditions{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4a4a4a;
+    font-size: 1.2rem;
+    line-height: 1;
+    float: right;
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+}
+.checkout-button-container{
+    margin-top: 8% !important;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin: 0 auto;
+    height: 55px;
+}
+.checkout-button{
+    font-family: 'Merriweather Sans', sans-serif;
+    width: auto;
+    background-color: black;
+    opacity: 0.915;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid rgb(94 95 104 / 15%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    line-height: 2.2;
+    cursor: pointer;
+    transition: outline .1s linear;
+    box-sizing: border-box;
 }
