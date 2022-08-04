@@ -36,25 +36,30 @@
                 <ul class="dropdown-ul">
                     <li class="dropdown-li"><a href="index.html" class="home">Home</a></li>
                     <li class="dropdown-li"><a href="/frame_bags" class="frame-bag">Frame Bag Gallery</a></li>
-                    <li class="dropdown-li"><a href="/contact" class="contact">Contact Us</a></li>
+                    <li class="dropdown-li"><a class="contact" onclick="window.location.href = 'contact.html';">Contact Us</a></li>
                 </ul>
             </div>
             <main id="site-container">
                 <div class="form-container">
-                    <form action="">
+                    <h3 class="contact-title">Contact Us</h3>
+                    <form action="" class="contact-form">
                         <fieldset class="fieldset-container">
-                            <div>
+                            <div class="name-container contact-container">
                                 <input type="text" class="f-name" id="f-name" placeholder="First Name">
                                 <input type="text" class="l-name" id="l-name" placeholder="Last Name">
                             </div>
-                            <div>
+                            <div class="contact-container">
                                 <input type="text" class="email" id="email" placeholder="Email">
                             </div>
-                            <div>
+                            <div class="contact-container">
                                 <input type="text" class="subject" id="subject" placeholder="Subject">
                             </div>
-                            <div>
-                                <textarea name="notes-email" id="notes-email" cols="30" rows="10" placeholder="Type Your Message Here"></textarea>
+                            <div class="contact-container">
+                                <label for="notes-email"></label>
+                                <textarea class="notes-email" name="notes-email" id="notes-email" placeholder="Type Your Message Here"></textarea>
+                            </div>
+                            <div class="send-button-conatiner">
+                                <button class="send-button">SEND</button>
                             </div>
                         </fieldset>
                     </form>
@@ -64,7 +69,7 @@
                 </div>
                 <footer>
                     <div class="footer-nav">
-                        <div class="contact footer-div">Contact</div>
+                        <div class="contact footer-div" onclick="window.location.href = 'contact.html';">Contact</div>
                         <span class="footer-dot"></span>
                         <div class="about footer-div">About Us</div>
                         <span class="footer-dot"></span>

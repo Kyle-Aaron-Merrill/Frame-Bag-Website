@@ -1559,6 +1559,8 @@ img{
         border: 1px solid rgb(94 95 104 / 15%);
         border-radius: 5px;
         text-indent: 5px;
+        overflow: hidden;
+        resize: none;
     }
     .cart-checkout{
         width: 40%;
@@ -1784,6 +1786,8 @@ img{
         border: 1px solid rgb(94 95 104 / 15%);
         border-radius: 5px;
         text-indent: 5px;
+        overflow: hidden;
+        resize: none;
     }
     .cart-checkout{
         width: 40%;
@@ -2010,6 +2014,8 @@ img{
         border: 1px solid rgb(94 95 104 / 15%);
         border-radius: 5px;
         text-indent: 5px;
+        overflow: hidden;
+        resize: none;
     }
     .cart-checkout{
         width: 100%;
@@ -2237,6 +2243,8 @@ img{
         border: 1px solid rgb(94 95 104 / 15%);
         border-radius: 5px;
         text-indent: 5px;
+        overflow: hidden;
+        resize: none;
     }
     .cart-checkout{
         width: 100%;
@@ -2313,11 +2321,14 @@ img{
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 25px 40px #1687d933;
-    margin-top: 4em;
+    margin-top: 8em;
     min-height: 92vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.contact-form{
+    width: 80%;
 }
 .fieldset-container{
     display: flex;
@@ -2337,9 +2348,66 @@ img{
     font-weight: 700;
     font-size: 15px;
 }
+.name-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.contact-container{
+    width: 50%;
+    margin-bottom: 9px;
+}
 .f-name{
     width: 50% !important;
+    margin-right: 4.5px;
 }
 .l-name{
     width: 50% !important;
+    margin-left: 4.5px;
+}
+.notes-email{
+    width: 100%;
+    height: 20vh;
+    font-family: 'Merriweather Sans', sans-serif;
+    border: 1px solid rgb(94 95 104 / 15%);
+    border-radius: 5px;
+    text-indent: 5px;
+    overflow: hidden;
+    resize: none;
+    background: #f6f7f2;
+    font-weight: 700;
+    font-size: 15px;
+}
+.send-button{
+    font-family: 'Merriweather Sans', sans-serif;
+    width: auto;
+    background-color: black;
+    opacity: 0.915;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid rgb(94 95 104 / 15%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    line-height: 2.2;
+    cursor: pointer;
+    transition: outline .1s linear;
+    box-sizing: border-box;
+    margin-top: 9px;
+}
+.contact-title{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 100;
+    color: #4a4a4a;
+    line-height: 1.625;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1.75em;
+    width: 100%;
 }
