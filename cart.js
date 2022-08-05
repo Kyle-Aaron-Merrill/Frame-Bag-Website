@@ -9,11 +9,13 @@ for(var i=0; i<qtyInputs.length;i++){
     var input = qtyInputs[i]
     input.addEventListener('change', qtyChanged)
 }
+/*
 var add_to_cart = document.querySelectorAll('#cart-add')
 for(var i=0; i<add_to_cart.length;i++){
     var button = add_to_cart[i]
     button.addEventListener('click', addToCart)
 }
+*/
 
 function updateCartTotal(){
     var cartItemContainer = document.querySelectorAll('.cart-items')[0]
