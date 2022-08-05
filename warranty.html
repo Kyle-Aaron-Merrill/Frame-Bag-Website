@@ -40,7 +40,51 @@
                 </ul>
             </div>
             <main id="site-container">
-                
+                <div class="warranty-container">
+                    <h3>Warranty Policy</h3>
+                    <p>We make high quality frame bags but, accidents happen. If there is a problem with your pack we provide warranties only for defects. This means no wear or tear, zipper wear, tire rub, or improper mounting. Customers who do not qualify for a warranty are still edible for bag repair. Bag repair pricing may change depending on the damage to the product. For a warranty or repair please fill out the warranty form below.</p>
+                    <div class="main-footer-line">
+                        <hr>
+                    </div>
+                    <form action="" class="warranty-form">
+                        <fieldset class="fieldset-container">
+                            <label for="contact-info" class="warranty-label">Contact Info</label>
+                            <div class="warranty-form-container" id="contact-info">
+                                <div class="warranty-fieldset-container">
+                                    <input type="text" class="input-space-right" id="f-name" placeholder="First Name">
+                                    <input type="text" class="input-space-left" id="l-name" placeholder="Last Name">
+                                </div>
+                                <div class="warranty-fieldset-container">
+                                    <input type="text" class="input-space-right" id="email" placeholder="Email">
+                                    <input type="number" class="input-space-left" id="ph-num" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <label for="shipping-info" class="warranty-label">Shipping Info</label>
+                            <div class="warranty-form-container" id="shipping-info">
+                                <div class="warranty-fieldset-container">    
+                                    <input type="text" name="address-1" id="address-1" class="input-space-right" placeholder="Address 1">
+                                    <input type="text" name="address-2" id="address-2" class="input-space-left" placeholder="Address 2">
+                                </div>
+                                <div class="warranty-fieldset-container">    
+                                    <input type="text" name="city" id="city" class="input-space-right" placeholder="City">
+                                    <input type="text" name="state" id="state" class="input-space-left" placeholder="State">
+                                </div>
+                                <div class="warranty-fieldset-container">    
+                                    <input type="text" name="zip" id="zip" class="input-space-right" placeholder="Zip Code">
+                                    <input type="text" name="country" id="country" class="input-space-left" placeholder="Country">
+                                </div>
+                            </div>
+                            <label for="purchase-info" class="warranty-label">Purchase Info</label>
+                            <div class="warranty-form-container" id="purchase-info">
+                                <input type="date" name="purch-date" id="purch-date" class="warranty-fieldset-container purch-date" required>
+                                <textarea name="war-reason" id="war-reason" class="warranty-notes" placeholder="Product Issue's"></textarea>
+                            </div>
+                            <div class="send-button-conatiner">
+                                <button class="send-button">SEND</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
                 <div class="main-footer-line">
                     <hr>
                 </div>
@@ -50,7 +94,7 @@
                         <span class="footer-dot"></span>
                         <div class="about footer-div" onclick="window.location.href = 'about.html';">About Us</div>
                         <span class="footer-dot"></span>
-                        <div class="warranty footer-div">Warranty</div>
+                        <div class="warranty footer-div" onclick="window.location.href = 'warranty.html';">Warranty</div>
                     
                     </div>
                     <div class="footer-social">
