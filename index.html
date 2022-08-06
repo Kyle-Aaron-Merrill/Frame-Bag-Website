@@ -11,11 +11,17 @@
         <script src="https://kit.fontawesome.com/1c3ebc7a41.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
+    
     <body class="home preload main-page">
+        <div class="loader-wrapper" id="loader-wrapper">
+            <div class="loader-top"></div>
+            <div class="loader-outer"><div class="loader"></div></div>
+            <div class="loader-bottom"></div>
+        </div>
         <div class="wrapper">
             <header class="site-nav" id="site-nav">
                 <div class="site-banner" id="site-banner">
-                    <button class="burger-button" id="burger-button">
+                    <button class="burger-button button" id="burger-button">
                             <span class="burger-line burger-top"></span> 
                             <span class="burger-line burger-mid"></span>
                             <span class="burger-line burger-bottom"></span>
@@ -34,90 +40,98 @@
             </header>
             <div id="dropdown" class="dropdown">
                 <ul class="dropdown-ul">
-                    <li class="dropdown-li"><a href="index.html" class="home">Home</a></li>
-                    <li class="dropdown-li"><a href="/frame_bags" class="frame-bag">Frame Bag Gallery</a></li>
-                    <li class="dropdown-li"><a class="contact" onclick="window.location.href = 'contact.html';">Contact Us</a></li>
+                    <li class="dropdown-li button"><a href="#site-nav" class="home">Home</a></li>
+                    <li class="dropdown-li button"><a href="#gallery-slider" class="frame-bag" onclick="">Frame Bag Gallery</a></li>
+                    <li class="dropdown-li button"><a class="contact" onclick="window.location.href = 'contact.html';">Contact Us</a></li>
                 </ul>
             </div>
-            <main id="site-container">
-                <div class="Swipper-container">
-                    <h3 class="main-h3">Hand Made Frame Bags</h3>
-                    <div class="how to order button">
-                        <button class="order-button" id="cart-add" onclick="window.location.href = 'cart.html';">Add to cart &#9866; $100</button>
-                    </div>
-                </div>
-                <div class="bag-info">
-                    <div class="bag-pic-1">
-                        <img src="https://ilovebicycling.com/wp-content/uploads/2018/05/bikepacking.jpg" alt="bike image">
-                    </div>
-                    <div class="about-bag-info">
-                        <div class="about-text-box scroll">
-                            <h1>Personalize Your Bag</h1>
-                            <p>Choose the platform of your bag. Choose the amount of zippers you want on your bag, add internal pockets, add an internal divider, or determine your mounting design. Your bag is designed the way you want.</p>
-                        </div>
-                        <div class="about-text-box scroll">
-                            <h1>Choose your fabric</h1>
-                            <p>
-                                We offer multiple colors to choose from so whether you are looking for an eye-catching design or something more under the radar, we select the fabric to match your needs. </p>
-                        </div>
-                        <div class="about-text-box scroll">
-                            <h1>Built in features</h1>
-                            <p>We include essential features such as a shock mount, waterproof zippers, padded inserts for structural integrity, and a hydration hose exit port.</p>
+            <main  id="site-container">
+                <section>
+                    <div class="Swipper-container">
+                        <h3 class="main-h3">Hand Made Frame Bags</h3>
+                        <div class="how to order button">
+                            <button class="order-button" id="cart-add" onclick="window.location.href = 'cart.html';">Add to cart &#9866; $100</button>
                         </div>
                     </div>
-                </div>
-                <div class="gallery-slider">
-                    <div class="gallery-container">
-                        <div class="arrows">
-                            <!-- Next and previous buttons -->
-                            <a class="prev arrow" onclick="plusSlides(-1)">&#10094;</a>
-                            <div style="text-align:center">
-                                <span class="dot" onclick="currentSlide(1)"></span>
-                                <span class="dot" onclick="currentSlide(2)"></span>
-                                <span class="dot" onclick="currentSlide(3)"></span>
-                                <span class="dot" onclick="currentSlide(4)"></span>
-                              </div>
-                            <a class="next arrow" onclick="plusSlides(1)">&#10095;</a>
-                            
+                </section>
+                <section>
+                    <div class="bag-info">
+                        <div class="bag-pic-1">
+                            <img src="https://ilovebicycling.com/wp-content/uploads/2018/05/bikepacking.jpg" alt="bike image">
                         </div>
+                        <div class="about-bag-info">
+                            <div class="about-text-box scroll">
+                                <h1>Personalize Your Bag</h1>
+                                <p>Choose the platform of your bag. Choose the amount of zippers you want on your bag, add internal pockets, add an internal divider, or determine your mounting design. Your bag is designed the way you want.</p>
+                            </div>
+                            <div class="about-text-box scroll">
+                                <h1>Choose your fabric</h1>
+                                <p>
+                                    We offer multiple colors to choose from so whether you are looking for an eye-catching design or something more under the radar, we select the fabric to match your needs. </p>
+                            </div>
+                            <div class="about-text-box scroll">
+                                <h1>Built in features</h1>
+                                <p>We include essential features such as a shock mount, waterproof zippers, padded inserts for structural integrity, and a hydration hose exit port.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="gallery-slider" id="gallery-slider">
+                        <div class="gallery-container">
+                            <div class="arrows">
+                                <!-- Next and previous buttons -->
+                                <a class="prev arrow" onclick="plusSlides(-1)">&#10094;</a>
+                                <div style="text-align:center">
+                                    <span class="dot" onclick="currentSlide(1)"></span>
+                                    <span class="dot" onclick="currentSlide(2)"></span>
+                                    <span class="dot" onclick="currentSlide(3)"></span>
+                                    <span class="dot" onclick="currentSlide(4)"></span>
+                                </div>
+                                <a class="next arrow" onclick="plusSlides(1)">&#10095;</a>
+                                
+                            </div>
 
-                        <!-- Full-width images with number and caption text -->
-                        <div class="mySlides fade">
-                          <img src="pics/img1.jpg" style="width:100%">
-                        </div>
-                      
-                        <div class="mySlides fade">
-                          <img src="pics/img2.jpg" style="width:100%">
-                        </div>
-                      
-                        <div class="mySlides fade">
-                          <img src="pics/img3.jpg" style="width:100%">
-                        </div>
+                            <!-- Full-width images with number and caption text -->
+                            <div class="mySlides fade">
+                            <img src="pics/img1.jpg" style="width:100%">
+                            </div>
+                        
+                            <div class="mySlides fade">
+                            <img src="pics/img2.jpg" style="width:100%">
+                            </div>
+                        
+                            <div class="mySlides fade">
+                            <img src="pics/img3.jpg" style="width:100%">
+                            </div>
 
-                        <div class="mySlides fade">
-                            <img src="pics/img4.jpg" style="width:100%">
+                            <div class="mySlides fade">
+                                <img src="pics/img4.jpg" style="width:100%">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="main-footer-line">
-                    <hr>
-                </div>
-                <footer>
-                    <div class="footer-nav">
-                        <div class="contact footer-div" onclick="window.location.href = 'contact.html';">Contact</div>
-                        <span class="footer-dot"></span>
-                        <div class="about footer-div" onclick="window.location.href = 'about.html';">About Us</div>
-                        <span class="footer-dot"></span>
-                        <div class="warranty footer-div" onclick="window.location.href = 'warranty.html';">Warranty</div>
-                    
+                </section>
+                <section style="height: 30vh;">
+                    <div class="main-footer-line">
+                        <hr>
                     </div>
-                    <div class="footer-social">
-                        <div class="footer-div"><a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
-                        <div class="footer-div"><a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a></div>
-                        <div class="footer-div"><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
-                        <div class="footer-div"><a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></div>
-                    </div>
-                </footer>
+                    <footer>
+                        <div class="footer-nav">
+                            <div class="contact footer-div" onclick="window.location.href = 'contact.html';">Contact</div>
+                            <span class="footer-dot"></span>
+                            <div class="about footer-div" onclick="window.location.href = 'about.html';">About Us</div>
+                            <span class="footer-dot"></span>
+                            <div class="warranty footer-div" onclick="window.location.href = 'warranty.html';">Warranty</div>
+                        
+                        </div>
+                        <div class="footer-social">
+                            <div class="footer-div"><a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                            <div class="footer-div"><a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a></div>
+                            <div class="footer-div"><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+                            <div class="footer-div"><a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></div>
+                        </div>
+                    </footer>
+                </section>
             </main>
     </body>
     <script src="TomScript.js"></script>

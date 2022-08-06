@@ -2,6 +2,18 @@
 *,*::before,*::after{
     margin: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+}
+.wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+background: #ddd;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+background: rgb(41, 40, 40); 
 }
 .wrapper{
     margin: 0;
@@ -20,11 +32,136 @@
 }
 body{
     background: #f6f7f2;
+    overflow: hidden;
 }
+/*-----------------------------------------------Loader animation-----------------------------*/
+.loader-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    overflow: hidden;
+    top: 0;
+    background: transparent;
+}
+.loader-top{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    background: #000;
+    animation-delay: 750ms;
+    animation-duration: 800ms;
+    animation-name: page-load-top;
+}
+.loader-bottom{
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    background: #000;
+    animation-delay: 750ms;
+    animation-duration: 800ms;
+    animation-name: page-load-bottom;
+}
+.loader-outer{
+    z-index: 3;
+    display: flex;
+    position: relative;
+    height: 10px;
+    width: 100%;
+    border-radius: 15px;
+    top: 50%;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.loader-outer .loader{
+    position: absolute;
+    background-color: #ffffff;
+    width: 0px;
+    height: 1px;
+    border-radius: 15px;
+    animation: progres 800ms linear;    
+}
+
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 15%;
+    }
+    50%{
+        width: 30%;
+    }
+    75%{
+        width: 50%;
+    }
+    80%{
+        width: 65%;
+    }
+    95%{
+        width: 85%;
+    }
+    100%{
+        width: 110%;
+        opacity: 0;
+    }
+}
+@keyframes page-load-top{
+    0%{
+        height: 50%;
+    }
+    85%{
+        opacity: 0.915;
+    }
+    100%{
+        opacity: 0;
+        height: 0%;
+    }
+}
+@keyframes page-load-bottom{
+    0%{
+        top:50%
+    }
+    85%{
+        opacity: 0.915;
+    }
+    100%{
+        opacity: 0;
+        top: 100%;
+    }
+}
+/*
 body.preload *{
     animation-duration: 0s !important;
     -webkit-animation-duration: 0s !important;
-    transition:background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;}
+    transition:background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+*/
+.wrapper{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+}
 img{
     width: 100%;
     height: auto;
@@ -46,11 +183,19 @@ input[type=date]::-webkit-datetime-edit {
     display: contents;
 }
 /*--------------------------------------------------------Animations---------------------------------------------*/
+@keyframes loader{
+    from{
+        background: black;
+    }
+    to{
+        background: inherit;
+    }
+}
 @keyframes drop-down{
     from {
         height: 0px;
+        position: absolute;
       }
-    
       to {
         height: 100%;
       }
@@ -75,11 +220,15 @@ input[type=date]::-webkit-datetime-edit {
 }
 @keyframes pop-up{
     from {
+        position: fixed;
         height: 100%;
       }
-    
+      90%{
+        position: fixed;
+      }
       to {
         height: 0px;
+        position: absolute;
       }
 }
 @keyframes pop-up-ul{
@@ -102,6 +251,22 @@ input[type=date]::-webkit-datetime-edit {
         display: contents;
     }
 
+}
+@keyframes nav-fade-in{
+    from{
+        background: transparent;
+    }
+    to{
+        background: #000;
+    }
+}
+@keyframes nav-fade-out{
+    from{
+        background: #000;
+    }
+    to{
+        background: transparent;
+    }
 }
 .fade {
     animation-name: fade;
@@ -162,6 +327,8 @@ input[type=date]::-webkit-datetime-edit {
         justify-content: space-around;
         align-items: center;
         z-index: 1;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-in;
     }
     .burger-top{
         top: 17px;
@@ -239,7 +406,8 @@ input[type=date]::-webkit-datetime-edit {
     }
     .dropdown{
         display: block;
-        background-color: darkslategray;
+        position: absolute;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: pop-up;
@@ -249,7 +417,7 @@ input[type=date]::-webkit-datetime-edit {
     .dropdown.active {
         display: block;
         position: fixed;
-        background-color: darkslategray;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: drop-down;
@@ -258,11 +426,11 @@ input[type=date]::-webkit-datetime-edit {
         z-index: 1;
     }
     .site-banner.active{
-        background-color: darkslategray;
-        
+        background-color: transparent;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-out;
     }
     .site-nav.active{
-        background-color: darkslategray;
         z-index: 2;
         position: fixed;
     }
@@ -362,6 +530,7 @@ input[type=date]::-webkit-datetime-edit {
     .bag-info{
         margin-top: 6.5em;
         display: grid;
+        width: 100%;
         grid-column: 2;
         grid-auto-flow: column;
         grid-column-gap: 2em;
@@ -387,14 +556,9 @@ input[type=date]::-webkit-datetime-edit {
         text-align: left;
         line-height: 1.5em;
     }
-    .scroll.show{
+    .about-text-box:hover{
         filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
-        transform: translateX(-20%);
-        transition: all 400ms cubic-bezier(0.84, 0.06, 0.73, 0.85);       
-    }
-    .scroll.show{
-        filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
-        transform: translateX(-20%);
+        transform: translateX(-12%);
         transition: all 400ms cubic-bezier(0.84, 0.06, 0.73, 0.85);       
     }
     .gallery-slider{
@@ -415,7 +579,7 @@ input[type=date]::-webkit-datetime-edit {
         flex-direction: column;
         margin: 0;
         min-height: 25vh;
-        width: 85%;
+        width: 97%;
     }
     .arrows{
         display: flex;
@@ -583,6 +747,9 @@ input[type=date]::-webkit-datetime-edit {
         cursor: pointer;
         outline: none;
     }
+    section:nth-of-type(3){
+        height: 100vh;
+    }
     .site-banner-logo{
         width: 45%;
         text-align: center;
@@ -605,6 +772,8 @@ input[type=date]::-webkit-datetime-edit {
         justify-content: space-around;
         align-items: center;
         z-index: 1;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-in;
     }
     .burger-top{
         top: 17px;
@@ -682,7 +851,8 @@ input[type=date]::-webkit-datetime-edit {
     }
     .dropdown{
         display: block;
-        background-color: darkslategray;
+        position: absolute;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: pop-up;
@@ -692,7 +862,7 @@ input[type=date]::-webkit-datetime-edit {
     .dropdown.active {
         display: block;
         position: fixed;
-        background-color: darkslategray;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: drop-down;
@@ -701,11 +871,461 @@ input[type=date]::-webkit-datetime-edit {
         z-index: 1;
     }
     .site-banner.active{
-        background-color: darkslategray;
-        
+        background-color: transparent;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-out;
     }
     .site-nav.active{
-        background-color: darkslategray;
+        z-index: 2;
+        position: fixed;
+    }
+    /*------------------------------------------------------------------------------------Dropdown styles----------------------------------------------------------------------*/
+    .dropdown-ul{
+        list-style: none;
+        margin: 0;
+        padding: 4%;
+        animation-duration: 0.5s;
+        animation-name: pop-up-ul;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5em;
+    }
+    .dropdown-ul.active{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation-duration: 0.5s;
+        animation-name: drop-down-ul;
+        opacity: 1;
+        top: 0em;
+    }
+    .dropdown-li{
+        padding: 1%;
+        margin-bottom: 1.25em;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown-li:hover{
+        transform: scale(1.2);
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown-li a{
+        font-size: 25px;
+        font-family: 'Merriweather Sans', sans-serif;
+        text-decoration: none;
+        color: white;
+    }
+    /*------------------------------------------------------------------------------------Main Styles------------------------------------------------------------------------*/
+    main{
+        /*min-width: 90vh;*/
+        animation-duration: 0.5s;
+        animation-name: pop-up-main;
+        height: auto;
+    }
+    main.active{
+        animation-duration: 0.5s;
+        animation-name: drop-down-main;
+        height: 0px;
+    }
+    .Swipper-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: center;
+        background-image: url(https://live.staticflickr.com/65535/52241875663_6757a3ff68_b.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .main-h3{
+        color: #fff;
+        text-shadow: 2px 2px #0000001a;
+        margin-bottom: 1em;
+        font-family: 'Merriweather Sans', sans-serif;
+    }
+    .order-button{
+        font-family: 'Merriweather Sans', sans-serif;
+        margin-bottom: 3em;
+        background: white;
+        width: 195px;
+        height: 45px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+    .order-button:hover{
+        opacity: 0.8;
+        box-shadow: 0px 15px 20px rgba(59, 56, 49, 0.4);
+        transform: translateY(-7px);
+    }
+    .bag-pic-1{
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+    }
+    .about-text-box{
+        font-family: 'Merriweather Sans', sans-serif;
+        width: 30em;
+        font-size: 14px;
+        margin-bottom: 2em;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.73, 0.85); 
+    }
+    .about-text-box h1{
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    .about-text-box p{
+        text-align: left;
+        line-height: 1.5em;
+    }
+    .about-text-box:hover{
+        filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
+        transform: scale(1.25);
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.73, 0.85);       
+    }
+    .bag-info{
+        margin-top: 1.5em;
+        display: grid;
+        grid-column: 2;
+        grid-auto-flow: row;
+        grid-column-gap: 2em;
+        grid-row-gap: 3em;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        margin-top: 8%;
+    }
+    .gallery-slider {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 30vh;
+        margin-top: 2em;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 30vh;
+        width: 97%;
+    }
+    .arrows{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footer-dot{
+        cursor: default;
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    .dot:hover{
+        transform: scale(1.25);
+    }
+    .dot.active{
+        transform: scale(1.25);
+        position: relative;
+        background-color: #717171;
+        z-index: -1;
+        transition: background-color 0.6s ease;
+    }
+    .number-display{
+        position: relative;
+        width: 50px;
+        height: auto;
+    }
+    .numbertext {
+        color: black;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: relative;
+        width: auto;
+        padding: 16px;
+        color: black;
+        font-weight: bold;
+        font-size: 28px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        transition: 0.6s ease;
+    }
+    .prev:hover, .next:hover{
+        transform: scale(1.5);
+        transition: 0.6s ease;
+    }
+    .mySlides {
+        display: none;
+        -webkit-box-shadow: 0px 2px 15px rgb(0 0 0 / 70%);
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 70%);
+        background: rgba(0, 0, 0, .2);
+    }
+    /*------------------------------------------------------Footer Styles--------------------------------*/
+    hr {
+        height: 2px;
+        border: none;
+        color: #000;
+        background-color: #ccc;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 5em;
+        margin-bottom: 1em;
+    }
+    .footer-nav{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: center;
+        height: 8vh;
+        margin-bottom: 1em;
+    }
+    .footer-div{
+        font-size: 25px;
+        cursor: pointer;
+        font-family: 'Merriweather Sans', sans-serif;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+        margin-left: 10px;
+        margin-right: 10PX;
+    }
+    .footer-div:hover{
+        filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
+        transform: translateY(-7px);
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .footer-social{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 1em;
+        justify-content: center;
+    }
+    footer div a{
+        color: #000;
+    }
+}
+/*--------------------------------------------------------Tablet Styles------------------------------------------*/
+@media screen and (max-width: 720px) {
+    /*----------------------------------------------------Header Styles------------------------------------------*/
+    header{
+        display: flex;
+        width: 100%;
+        background: black;
+        justify-content: center;
+    }
+    header a{
+        color: whitesmoke;
+        font-family: 'Merriweather Sans', sans-serif;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    button{
+        height: inherit;
+        width: inherit;
+        background: inherit;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+    }
+    section:nth-of-type(3){
+        height: 45vh;
+    }
+    .site-banner-logo{
+        width: 45%;
+        text-align: center;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .site-banner{
+        position: fixed;
+        background-color: black;
+        opacity: 0.915;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        height: 4em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-in;
+    }
+    .burger-top{
+        top: 17px;
+    }
+    .burger-mid{
+        top: 30px;
+    }
+    .burger-bottom{
+        top: 43px;
+    }
+    .cart{
+        height: 100%;
+        width: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fa-shopping-cart{
+        color: whitesmoke;
+        font-size: 3em;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button{
+        height: 100%;
+        width: 5em;
+        opacity: 1;
+        transition: all 0.15s ease-out;
+    }
+    .burger-line{
+        display: block;
+        position: absolute;
+        opacity: 1;
+        height: 0.3em;
+        width: 2.5em;
+        background: whitesmoke;
+        border-radius: 1.5px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .burger-button.active .burger-top{
+        transform: rotate(45deg) translate(9px, 10px);
+    }
+    .burger-button.active .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px);
+    }
+    .burger-button.active:hover .burger-top{
+        transform: rotate(45deg) translate(9px, 10px) scale(1.25);
+    }
+    .burger-button.active:hover .burger-mid{
+        opacity: 0;
+    }
+    .burger-button.active:hover .burger-bottom{
+        transform: rotate(-45deg) translate(9px, -10px) scale(1.25);
+    }
+    .burger-button:hover .burger-line{
+        transform: scale(1.2);
+    } 
+    .site-banner-logo:hover a{
+        font-weight: bolder;
+        transform: translateY(-7px);
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .cart-button{
+        color: whitesmoke;
+        font-size: 35px;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .cart-button:hover{
+        transform: scale(1.1);
+        font-weight: bolder;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+    }
+    .dropdown{
+        display: block;
+        position: absolute;
+        background: radial-gradient(#03778e,#917960);
+        width: 100%;
+        animation-duration: 0.5s;
+        animation-name: pop-up;
+        height: 0px;
+        overflow: hidden;
+    }
+    .dropdown.active {
+        display: block;
+        position: fixed;
+        background: radial-gradient(#03778e,#917960);
+        width: 100%;
+        animation-duration: 0.5s;
+        animation-name: drop-down;
+        height: 100%;
+        top: 0em;
+        z-index: 1;
+    }
+    .site-banner.active{
+        background-color: transparent;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-out;
+    }
+    .site-nav.active{
         z-index: 2;
         position: fixed;
     }
@@ -804,9 +1424,10 @@ input[type=date]::-webkit-datetime-edit {
     }
     .about-text-box{
         font-family: 'Merriweather Sans', sans-serif;
-        width: 30em;
+        width: 90%;
         font-size: 14px;
-        margin-bottom: 1.5em;
+        margin: auto;
+        margin-bottom: 2em;
     }
     .about-text-box h1{
         text-align: center;
@@ -815,6 +1436,11 @@ input[type=date]::-webkit-datetime-edit {
     .about-text-box p{
         text-align: left;
         line-height: 1.5em;
+    }
+    .about-text-box:hover{
+        filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.25));
+        transform: none;
+        transition: all 400ms cubic-bezier(0.84, 0.06, 0.73, 0.85);
     }
     .bag-info{
         margin-top: 1.5em;
@@ -846,7 +1472,7 @@ input[type=date]::-webkit-datetime-edit {
         flex-direction: column;
         margin: 0;
         min-height: 30vh;
-        width: 85%;
+        width: 97%;
     }
     .arrows{
         display: flex;
@@ -1014,6 +1640,12 @@ input[type=date]::-webkit-datetime-edit {
         cursor: pointer;
         outline: none;
     }
+    section:nth-of-type(2){
+        height: 115vh;
+    }
+    section:nth-of-type(3){
+        height: 10vh;
+    }
     .site-banner-logo{
         width: 50%;
         text-align: center;
@@ -1036,7 +1668,10 @@ input[type=date]::-webkit-datetime-edit {
         justify-content: space-around;
         align-items: center;
         z-index: 1;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-in;
     }
+    .si
     .burger-top{
         top: 17px;
     }
@@ -1113,7 +1748,8 @@ input[type=date]::-webkit-datetime-edit {
     }
     .dropdown{
         display: block;
-        background-color: darkslategray;
+        position: absolute;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: pop-up;
@@ -1123,7 +1759,7 @@ input[type=date]::-webkit-datetime-edit {
     .dropdown.active {
         display: block;
         position: fixed;
-        background-color: darkslategray;
+        background: radial-gradient(#03778e,#917960);
         width: 100%;
         animation-duration: 0.5s;
         animation-name: drop-down;
@@ -1132,11 +1768,11 @@ input[type=date]::-webkit-datetime-edit {
         z-index: 1;
     }
     .site-banner.active{
-        background-color: darkslategray;
-        
+        background-color: transparent;
+        animation-duration: 0.5s;
+        animation-name: nav-fade-out;
     }
     .site-nav.active{
-        background-color: darkslategray;
         z-index: 2;
         position: fixed;
     }
@@ -1276,7 +1912,7 @@ input[type=date]::-webkit-datetime-edit {
         flex-direction: column;
         margin: 0;
         min-height: 30vh;
-        width: 85%;
+        width: 97%;
     }
     .arrows{
         display: flex;

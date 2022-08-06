@@ -12,10 +12,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="home preload">
+        <div class="loader-wrapper" id="loader-wrapper">
+            <div class="loader-top"></div>
+            <div class="loader-outer"><div class="loader"></div></div>
+            <div class="loader-bottom"></div>
+        </div>
         <div class="wrapper">
             <header class="site-nav" id="site-nav">
                 <div class="site-banner" id="site-banner">
-                    <button class="burger-button" id="burger-button">
+                    <button class="burger-button  button" id="burger-button">
                             <span class="burger-line burger-top"></span> 
                             <span class="burger-line burger-mid"></span>
                             <span class="burger-line burger-bottom"></span>
@@ -34,9 +39,9 @@
             </header>
             <div id="dropdown" class="dropdown">
                 <ul class="dropdown-ul">
-                    <li class="dropdown-li"><a href="index.html" class="home">Home</a></li>
-                    <li class="dropdown-li"><a href="/frame_bags" class="frame-bag">Frame Bag Gallery</a></li>
-                    <li class="dropdown-li"><a class="contact" onclick="window.location.href = 'contact.html';">Contact Us</a></li>
+                    <li class="dropdown-li button"><a href="index.html" class="home">Home</a></li>
+                    <li class="dropdown-li button"><a href="index.html#gallery-slider" class="frame-bag">Frame Bag Gallery</a></li>
+                    <li class="dropdown-li button"><a class="contact" onclick="window.location.href = 'contact.html';">Contact Us</a></li>
                 </ul>
             </div>
             <main id="site-container">
